@@ -1,0 +1,111 @@
+:root {
+  --primary-light-hsl: 200, 100%, 91%;
+  --primary-hsl: 200, 100%, 50%;
+  --primary-dark-hsl: 200, 100%, 6%;
+  --fuzzy-color: hsl(var(--primary-dark-hsl), 0.7);
+  --succes-hsl: 100, 60%, 50%;
+  --error-hsl: 0, 60%, 50%;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background-color: hsl(var(--primary-hsl), 0.25);
+  border: 1px solid hsl(var(--primary-hsl));
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background-color: hsl(var(--primary-dark-hsl), 0.25);
+  border: 1px solid hsl(var(--primary-hsl));
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background-color: hsl(var(--primary-light-hsl), 0.25);
+  border: 1px solid hsl(var(--primary-hsl));
+}
+
+$font-weights: (
+  'regular': 400,
+  'medium': 500,
+  'bold': 700,
+);
+$mobile: 800px;
+
+@function weight($weight-name) {
+  @return map-get($font-weights, $weight-name);
+}
+
+@mixin flexCenter($direction) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: $direction;
+}
+
+@mixin theme($light-theme: true) {
+  @if $light-theme {
+    background: lighten($primary-color, 100%);
+    color: darken($text-color, 100%);
+  }
+}
+
+@mixin mobile {
+  @media (min-width: $mobile) {
+    @content;
+  }
+}
+
+*,
+*::before *::after {
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body,
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+// h1,
+// h2,
+// h3 {
+//   color: $primary-color;
+//   font-family: $accent-color;
+// }
+
+h2,
+h3,
+p {
+  margin-bottom: 1em;
+}
+
+// .main {
+//   @include flexCenter(row);
+//   width: 80%;
+//   margin: 0 auto;
+
+//   #{&}__paragraph {
+//     font-weight: weight(bold);
+
+//     &:hover {
+//       color: pink;
+//     }
+//   }
+// }
+
+// @include mobile {
+//  flex-direction: column;
+// }
+
+// .light {
+//   @include theme($light-theme: true);
+// }

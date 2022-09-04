@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shift-Builder</title>
+    <link rel="stylesheet" href="../css/main.css" />
+  </head>
+  <body>
+    <div class="full-screen-container">
+      <div id="login-register-container" class="login-container">
+        <div class="button-box">
+          <div id="btn"></div>
+          <button type="button" class="toggle-btn" onclick="login()">
+            Log In
+          </button>
+          <button type="button" class="toggle-btn" onclick="register()">
+            Register
+          </button>
+        </div>
+        <h1 id="result" class="result">Welcome</h1>
+
+        <form id="login" class="form">
+          <div class="input-group">
+            <label for="username">Username</label>
+            <input type="username" name="username" id="login-username" />
+            <span class="msg">Valid Username</span>
+          </div>
+
+          <div class="input-group">
+            <label for="password">Password</label>
+            <input type="password" name="password" id="login-password" />
+            <span class="msg">Incorrect Password</span>
+          </div>
+          <button onclick="onLoginClick()" type="submit" class="login-button">
+            Login
+          </button>
+        </form>
+
+        <form id="register" class="register-slide">
+          <div id="validation" class="input-group">
+            <label for="email">Insert Email</label>
+            <input type="email" name="username" id="register-email" required />
+            <span class="msg">Valid Email</span>
+          </div>
+
+          <div id="validation" class="input-group">
+            <label for="username">Insert Username</label>
+            <input
+              type="username"
+              name="username"
+              id="register-name"
+              required
+            />
+            <span class="msg">Valid Username</span>
+          </div>
+
+          <div id="validation" class="input-group">
+            <label for="password">Insert Password</label>
+            <input
+              type="password"
+              name="password"
+              id="register-password"
+              required
+            />
+            <span class="msg">Valid Password</span>
+          </div>
+
+          <div id="validation" class="input-group">
+            <label for="register-firstName">Insert First Name</label>
+            <input
+              type="text"
+              name="register-firstName"
+              id="register-firstName"
+              required
+            />
+            <!-- <span class="msg">Valid Password</span> -->
+          </div>
+
+          <div id="validation" class="input-group">
+            <label for="register-lastName">Insert Last Name</label>
+            <input
+              type="text"
+              name="register-lastName"
+              id="register-lastName"
+              required
+            />
+            <!-- <span class="msg">Valid Password</span> -->
+          </div>
+
+          <div id="validation" class="input-group">
+            <label for="register-age">Insert Your Age</label>
+            <input
+              type="number"
+              name="register-age"
+              id="register-age"
+              required
+            />
+            <span class="msg">Valid Age</span>
+          </div>
+
+          <button type="submit" class="login-button">Register</button>
+        </form>
+      </div>
+    </div>
+    <script src="./js/index.js"></script>
+  </body>
+</html>

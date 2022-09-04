@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/main.css">
+    <title>Document</title>
+  </head>
+  <body class="homepage-body">
+    <header>
+      <nav class="nav">
+        <ul class="nav__links">
+          <li><a href="#" >My Shifts</a></li>
+          <li><a onclick="editProfile()">Edit Profile</a></li>
+          <li><a onclick="logOutUser()">Log out</a></li>
+        </ul>
+      </nav>
+      <h2 class="greetings">Welcome, <span id="user"> </span></h2>
+    </header>
+    <h1 class="table-name">Shift Manager</h1>
+
+    <div class="sto">
+    <table cellpadding="0" cellspacing="0" border="0">
+      <thead class="tbl-header">
+        <tr>
+          <th>Nr.</th>
+          <th>Shift Name</th>
+          <th>Start Time</th>
+          <th>End Time</th>
+          <th>Hourly Wage</th>
+          <th>Shift Place</th>
+          <th>Total Profit per shift</th>
+        </tr>
+      </thead>
+      <tbody class="tbl-content"></tbody>
+      <tfoot><td>Best shift is:</td></tfoot>
+    </table>
+  </div>
+
+  <form id="form-table" class="form-table-style">
+    <div>
+    <label for="name">Shift Name</label>
+    <input type="text" name="name" id="name" />
+    </div>
+    <div>
+    <label for="start-date">Start Time</label>
+    <input type="datetime-local" name="start-date" id="start-date" />
+  </div>
+    <div>
+    <label for="end-date">End Time</label>
+    <input type="datetime-local" name="end-date" id="end-date" />
+    </div>
+    <div>
+    <label for="number">Hourly Wage</label>
+    <input type="number" name="number" id="hourly-wage" />
+  </div>
+  <div>
+    <label for="text">Shift Place</label>
+    <input type="text" name="text" id="shift-place" />
+  </div>
+    <!-- <input type="number" id="profit" /> -->
+    <button id="table-addShift-btn" type="submit" class="login-button">Add Shift</button>
+</form>
+</section>
+    <script src="./js/add-shift.js"></script>
+  </body>
+</html>
