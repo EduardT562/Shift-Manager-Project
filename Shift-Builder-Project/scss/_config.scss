@@ -75,37 +75,8 @@ p {
   margin: 0;
 }
 
-// h1,
-// h2,
-// h3 {
-//   color: $primary-color;
-//   font-family: $accent-color;
-// }
-
 h2,
 h3,
 p {
   margin-bottom: 1em;
 }
-
-// .main {
-//   @include flexCenter(row);
-//   width: 80%;
-//   margin: 0 auto;
-
-//   #{&}__paragraph {
-//     font-weight: weight(bold);
-
-//     &:hover {
-//       color: pink;
-//     }
-//   }
-// }
-
-// @include mobile {
-//  flex-direction: column;
-// }
-
-// .light {
-//   @include theme($light-theme: true);
-// }

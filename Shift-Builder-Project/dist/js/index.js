@@ -2,10 +2,7 @@
 let loginBtn = document.getElementById('login');
 let registerBtn = document.querySelector('.register-slide');
 let switchBtn = document.getElementById('btn');
-// let reset = document.getElementById('result');
 let enlargeRegister = document.getElementById('login-register-container');
-// let validation = document.getElementById('validation');
-// let msg = document.querySelector('.msg');
 
 function resultReset() {
   result.innerHTML = 'Welcome';
@@ -70,6 +67,9 @@ function login() {
 const email = document.querySelector('#register-email');
 const username = document.querySelector('#register-name');
 const password = document.querySelector('#register-password');
+const firstName = document.querySelector('#register-firstName');
+const lastName = document.querySelector('#register-lastName');
+const age = document.querySelector('#register-age');
 const registerForm = document.querySelector('#register');
 
 const usernameLogin = document.querySelector('#login-username');
@@ -84,6 +84,9 @@ registerForm.addEventListener('submit', (e) => {
   userData.email = email.value;
   userData.name = username.value;
   userData.password = password.value;
+  userData.firstName = firstName.value;
+  userData.lastName = lastName.value;
+  userData.age = age.value;
   userData.shifts = {};
   console.log(userData);
   ValidateEmail(email);
@@ -101,6 +104,28 @@ registerForm.addEventListener('submit', (e) => {
   } else {
     setErrorFor(password, 'Password too short');
   }
+  let letters = /^[A-Za-z]+$/;
+
+  if (firstName.value.match(letters)) {
+    setSuccesFor(firstName);
+    saveToLocalStorage(userData);
+  } else {
+    setErrorFor(firstName, 'You must insert a first name');
+  }
+
+  if (lastName.value.match(letters)) {
+    setSuccesFor(lastName);
+    saveToLocalStorage(userData);
+  } else {
+    setErrorFor(lastName, 'You must insert a last name');
+  }
+
+  if (age.value >= 18) {
+    setSuccesFor(age);
+    saveToLocalStorage(userData);
+  } else if (age.value < 18) {
+    setErrorFor(age, 'Too young');
+  }
 });
 
 const saveToLocalStorage = (object) => {
@@ -117,8 +142,6 @@ loginForm.addEventListener('submit', (e) => {
   loginUser(user);
 });
 
-// const currentUser = {};
-
 const loginUser = (object) => {
   const userData = JSON.parse(localStorage.getItem(object.username));
 
@@ -127,12 +150,11 @@ const loginUser = (object) => {
     result.style.color = 'red';
     return;
   } else if (userData.password === object.password) {
-    localStorage.setItem('loggedInUser', JSON.stringify(userData)); // Daca parolele sunt la fel si user-ul este la fel cu obiectul din localStorage, atunci s-a creat un nou key in localStorage cu user-ul autentificat
+    localStorage.setItem('loggedInUser', JSON.stringify(userData));
     window.location.href = './homepage.html';
     onLoginClick(usernameLogin.value);
     result.innerHTML = 'Logged in';
     result.style.color = 'green';
-    // currentUser = userData;
     return;
   } else {
     result.innerHTML = 'Wrong password!';
@@ -140,25 +162,3 @@ const loginUser = (object) => {
     return;
   }
 };
-
-// const editProfileForm = document.querySelector('#edit-profile-form');
-
-// editProfileForm.addEventListener('submit', (e) => {
-//   e.preventDefault();
-//   userData.email = email.value;
-//   userData.name = username.value;
-//   userData.password = password.value;
-//   ValidateEmail(email);
-// });
-
-// function editUser() {
-//   if (currentUser != null) {
-//     const editEmail = document.querySelector('#edit-name');
-//     const editUsername = document.querySelector('#edit-email');
-//     const editPassword = document.querySelector('#edit-password');
-
-//     currentUser.email = editEmail.value;
-//     currentUser.name = editUsername.value;
-//     currentUser.password = editPassword.value;
-//   }
-// }

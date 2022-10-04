@@ -8,10 +8,11 @@
     <title>Document</title>
   </head>
   <body class="homepage-body">
+    <div id="loader" class="loader--hidden"></div>
     <header>
       <nav class="nav">
         <ul class="nav__links">
-          <li><a href="#" >My Shifts</a></li>
+          <li><a onclick="myShifts()" >My Shifts</a></li>
           <li><a onclick="editProfile()">Edit Profile</a></li>
           <li><a onclick="logOutUser()">Log out</a></li>
         </ul>
@@ -21,27 +22,34 @@
     <h1 class="table-name">Shift Manager</h1>
 
     <div class="sto">
-    <table cellpadding="0" cellspacing="0" border="0">
-      <thead class="tbl-header">
-        <tr>
-          <th>Nr.</th>
-          <th>Shift Name</th>
-          <th>Start Time</th>
-          <th>End Time</th>
-          <th>Hourly Wage</th>
-          <th>Shift Place</th>
-          <th>Total Profit per shift</th>
-        </tr>
-      </thead>
-      <tbody class="tbl-content"></tbody>
-      <tfoot><td>Best shift is:</td></tfoot>
-    </table>
-  </div>
+      <table cellpadding="0" cellspacing="0" border="0">
+         <thead class="tbl-header">
+
+              <th>Nr.</th>
+              <th>Shift Name</th>
+              <th>Start Time</th>
+              <th>End Time</th>
+              <th>Hourly Wage</th>
+              <th>Shift Place</th>
+              <th>Total Profit per shift</th>
+
+          </thead>
+          
+        <tbody class="tbl-content"></tbody>
+        
+        <!-- <tfoot><td>Best shift is:</td></tfoot> -->
+      </table>
+    </div>
+  <h1 id="best-shift-result" class="best-shift-result"></h1>
 
   <form id="form-table" class="form-table-style">
     <div>
     <label for="name">Shift Name</label>
     <input type="text" name="name" id="name" />
+    </div>
+    <div class ="remove-input">
+    <label for="name">Shift Name to Remove</label>
+    <input type="text" name="name" id="remove-shift" />
     </div>
     <div>
     <label for="start-date">Start Time</label>
@@ -61,7 +69,9 @@
   </div>
     <!-- <input type="number" id="profit" /> -->
     <button id="table-addShift-btn" type="submit" class="login-button">Add Shift</button>
+    
 </form>
+<button id="table-removeShift-btn" class="remove-shift-button">Remove Shift</button>
 </section>
     <script src="./js/add-shift.js"></script>
   </body>

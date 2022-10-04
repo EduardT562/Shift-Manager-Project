@@ -1,0 +1,95 @@
+.edit-profile-body {
+  background: linear-gradient(
+      to right,
+      rgba(39, 39, 39, 0.1),
+      rgba(39, 39, 39, 0.6)
+    ),
+    url(../dist/img/Edit-shifts.png) center top;
+  backdrop-filter: blur(7px);
+  height: 100vh;
+  width: 100vw;
+  background-size: cover;
+  background-position: center;
+}
+
+.greetings {
+  animation: glowing 5000ms infinite;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 1.6rem;
+  color: #edf0f1;
+  margin-right: 10rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  background-color: hsl(var(--primary-dark-hsl), 0.7);
+  border: 1px solid hsl(var(--primary-hsl));
+  border-radius: 0.25em;
+  outline: none;
+  padding: 0.25em 0.5em;
+  cursor: pointer;
+}
+
+.edit-profile-form {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  gap: 20px;
+  margin-top: 40px;
+  margin-left: 50em;
+  top: 180px;
+  position: absolute;
+  width: 280px;
+  transition: 0.5s;
+
+  .input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    transition: 0.5s;
+
+    label {
+      color: white;
+      font-weight: lighter;
+    }
+
+    input {
+      font-size: 1.25rem;
+      padding: 0.5em;
+      background-color: hsl(var(--primary-light-hsl), 0.3);
+      border: none;
+      outline: none;
+      border-radius: 0.25em;
+      color: white;
+      font-weight: lighter;
+
+      &:focus {
+        box-shadow: 0 0 0 1px hsl(var(--primary-hsl));
+      }
+    }
+
+    &.succes input {
+      box-shadow: 0 0 0 1px hsl(var(--succes-hsl));
+    }
+
+    &.error input {
+      box-shadow: 0 0 0 1px hsl(var(--error-hsl));
+    }
+
+    .msg {
+      display: none;
+      font-size: 0.75rem;
+    }
+
+    &.succes .msg,
+    &.error .msg {
+      display: block;
+    }
+
+    &.error .msg {
+      color: hsl(var(--error-hsl));
+    }
+    &.succes .msg {
+      color: hsl(var(--succes-hsl));
+    }
+  }
+}

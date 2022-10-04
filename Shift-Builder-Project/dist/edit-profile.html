@@ -4,18 +4,35 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/main.css" />
     <title>Document</title>
     <!-- <link rel="stylesheet" href="../css/main.css" /> -->
   </head>
-  <body>
-    <form id="edit-profile-form">
-      <label for="name">Name</label>
-      <input type="text" name="name" id="edit-name" />
-      <label for="text">Email</label>
-      <input type="text" name="text" id="edit-email" />
-      <label for="text">Password</label>
-      <input type="text" name="text" id="edit-password" />
-      <button type="submit" class="login-button">Save</button>
+  <body class="edit-profile-body">
+    <header>
+      <nav class="nav">
+        <ul class="nav__links">
+          <li><a onclick="myShifts()">My Shifts</a></li>
+          <li><a onclick="editProfile()">Edit Profile</a></li>
+          <li><a onclick="logOutUser()">Log out</a></li>
+        </ul>
+      </nav>
+      <h2 class="greetings">Welcome, <span id="user"> </span></h2>
+    </header>
+    <form id="edit-profile-form" class="edit-profile-form">
+      <div class="input-group">
+        <label for="name">Name</label>
+        <input type="text" name="name" id="edit-name" />
+      </div>
+      <div class="input-group">
+        <label for="text">Email</label>
+        <input type="text" name="text" id="edit-email" />
+      </div>
+      <div class="input-group">
+        <label for="text">Password</label>
+        <input type="text" name="text" id="edit-password" />
+      </div>
+      <button type="submit" class="login-button">Edit Profile</button>
     </form>
     <script src="./js/edit-profile.js"></script>
   </body>
